@@ -17,10 +17,7 @@ export const useGacha = () => {
 
   const add = useCallback(
     (gacha: Gacha) => {
-      setGachas((gachaList) => {
-        const gachas = [...gachaList, gacha]
-        return gachas
-      })
+      setGachas((gachaList) => [...gachaList, gacha])
     },
     [setGachas]
   )
