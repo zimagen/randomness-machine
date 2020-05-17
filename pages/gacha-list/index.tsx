@@ -17,7 +17,7 @@ const Component: React.FCX<Props> = ({ className, gachas }) => (
   <div className={className}>
     <div className="container my-12 mx-auto px-4 md:px-12">
       <Link href="/gacha-list/new">
-        <a className="bg-blue-400">Craete Gacha</a>
+        <a className="testStyle">Craete Gacha</a>
       </Link>
       <div className="flex flex-wrap -mx-1 lg:-mx-4">
         {gachas.map((gacha, index) => (
@@ -29,7 +29,15 @@ const Component: React.FCX<Props> = ({ className, gachas }) => (
 )
 
 // (4) Style層
-const StyledComponent = styled(Component)``
+const StyledComponent = styled(Component)`
+  .testStyle {
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    border: 1px solid gray;
+    padding: 12px;
+  }
+`
 
 // (5) Container層
 const Page: NextPage<ContainerProps> = (props) => {
