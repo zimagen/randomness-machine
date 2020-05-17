@@ -1,0 +1,41 @@
+// (1) import層
+import React from 'react'
+import { NextPage } from 'next'
+import styled from 'styled-components'
+import GachaCard from '@/components/GachaCard'
+import { useGacha, Gacha } from '@/hooks/useGacha'
+import Link from 'next/link'
+
+// (2) Types層
+type ContainerProps = {}
+type Props = {
+  gachas: Gacha[]
+}
+
+// (3) DOM層
+const Component: React.FCX<Props> = ({ className, gachas }) => (
+  <div className={className}>
+    <div className="container my-12 mx-auto px-4 md:px-12">
+      <Link href="/gacha-list/new">
+        <a className="bg-blue-400">Craete Gacha</a>
+      </Link>
+      <div className="flex flex-wrap -mx-1 lg:-mx-4">
+        {gachas.map((gacha, index) => (
+          <GachaCard key={index} gacha={gacha} />
+        ))}
+      </div>
+    </div>
+  </div>
+)
+
+// (4) Style層
+const StyledComponent = styled(Component)``
+
+// (5) Container層
+const Page: NextPage<ContainerProps> = (props) => {
+  const { gachas } = useGacha()
+
+  return <StyledComponent {...props} gachas={gachas} />
+}
+
+export default Page
