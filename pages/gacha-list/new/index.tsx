@@ -2,8 +2,7 @@
 import React, { useCallback, useRef } from 'react'
 import { NextPage } from 'next'
 import styled from 'styled-components'
-import { useGacha, Gacha } from '@/hooks/useGacha'
-import { useRecoilCallback } from 'recoil'
+import { useGacha } from '@/hooks/useGacha'
 import { useRouter } from 'next/router'
 
 // (2) Types層
@@ -16,17 +15,49 @@ type Props = {
 const Component: React.FCX<Props> = ({ className, handleClick, formRef }) => (
   <div className={className}>
     <form
+      className="max-w-xl m-4 p-10 bg-white rounded shadow-xl"
       ref={formRef}
       onSubmit={(e) => {
         e.preventDefault()
         return handleClick()
       }}
     >
-      <input className="border border-gray-500" type="text" name="gachaTitle" />
-      <input className="border border-gray-500" type="text" name="imageUrl" />
-      <input className="border border-gray-500" type="number" name="count" />
-
-      <button type="submit">add</button>
+      <p className="text-gray-800 font-medium">New Gacha</p>
+      <div>
+        <label className="block text-sm text-gray-00">Title</label>
+        <input
+          className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+          name="gachaTitle"
+          type="text"
+          required
+        />
+      </div>
+      <div>
+        <label className="block text-sm text-gray-00">Image url</label>
+        <input
+          className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+          name="imageUrl"
+          type="text"
+          required
+        />
+      </div>
+      <div>
+        <label className="block text-sm text-gray-00">Count</label>
+        <input
+          className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+          name="count"
+          type="text"
+          required
+        />
+      </div>
+      <div className="mt-4">
+        <button
+          className="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded"
+          type="submit"
+        >
+          SAVE
+        </button>
+      </div>
     </form>
   </div>
 )
