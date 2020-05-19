@@ -1,7 +1,7 @@
 import App, { AppInitialProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { RecoilRoot } from 'recoil'
-import Header from '@/components/Header'
+import Layout from '@/components/Layout'
 import '../css/tailwind.css'
 
 export default class MyApp extends App<AppInitialProps> {
@@ -16,9 +16,9 @@ export default class MyApp extends App<AppInitialProps> {
               content="initial-scale=1.0, width=device-width"
             />
           </Head>
-          <Header>
+          <Layout>
             <Component {...pageProps} />
-          </Header>
+          </Layout>
         </RecoilRoot>
       </>
     )
