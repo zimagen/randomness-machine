@@ -15,15 +15,13 @@ type Props = {
 // (3) DOM層
 const Component: React.FCX<Props> = ({ className, gachas }) => (
   <div className={className}>
-    <div className="container my-12 mx-auto px-4 md:px-12">
-      <Link href="/gacha-list/new">
-        <a className="testStyle">Craete Gacha</a>
-      </Link>
-      <div className="flex flex-wrap -mx-1 lg:-mx-4">
-        {gachas.map((gacha, index) => (
-          <GachaCard key={index} gacha={gacha} />
-        ))}
-      </div>
+    <Link href="/gacha-list/new">
+      <a className="testStyle">Craete Gacha</a>
+    </Link>
+    <div className="flex flex-wrap -mx-1 lg:-mx-4">
+      {gachas.map((gacha, index) => (
+        <GachaCard key={index} gacha={gacha} />
+      ))}
     </div>
   </div>
 )
