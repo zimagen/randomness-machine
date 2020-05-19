@@ -46,7 +46,7 @@ const Component: React.FCX<Props> = ({ className, handleClick, formRef }) => (
         <input
           className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
           name="count"
-          type="text"
+          type="number"
           required
         />
       </div>
