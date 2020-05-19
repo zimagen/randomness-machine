@@ -8,10 +8,10 @@
     "start": "next start",
     "export": "next export",
     "lint": "eslint --ext .ts,.tsx ./src",
-    "prettier": "prettier --write '**/*.{ts,tsx}'"
+    "prettier": "prettier --write '**/*.{ts,tsx}'",
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
     "next": "9.4.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -20,12 +20,15 @@
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
+    "@storybook/react": "^5.3.18",
     "@types/node": "^14.0.1",
     "@types/react": "^16.9.35",
     "@types/styled-components": "^5.1.0",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
+    "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
+    "babel-preset-react-app": "^9.1.2",
     "eslint": "^7.0.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard": "^14.1.1",
