@@ -1,5 +1,6 @@
 // (1) import層
 import React from 'react'
+import BottomNavi from '@/components/BottomNavi'
 // (2) Types層
 type ContainerProps = {}
 type Props = {}
@@ -7,14 +8,18 @@ type Props = {}
 // (3) DOM層
 const Component: React.FCX<Props> = (props) => (
   <>
-    <nav className="flex items-center justify-between flex-wrap bg-gray-800 px-6 py-3 fixed w-full z-60 top-0">
+    <nav className="flex items-center justify-between flex-wrap bg-gray-800 px-6 py-3 fixed w-full z-60">
       <div className="flex items-center flex-no-shrink text-white mr-6">
         <a
           className="text-white no-underline hover:text-white hover:no-underline"
           href="#"
         >
           <span className="relative text-xl pl-8">
-            <img src="/logo-sample.svg" className="absolute inset-0" />{' '}
+            <img
+              src="/svg/logo-sample.svg"
+              className="absolute inset-0"
+              alt="logo"
+            />
             Randomness Machine
           </span>
         </a>
@@ -25,20 +30,14 @@ const Component: React.FCX<Props> = (props) => (
           id="nav-toggle"
           className="flex items-center px-3 py-2 border rounded text-gray-600 border-gray-900 hover:text-white hover:border-white"
         >
-          <svg
-            className="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
+          <img src="/svg/menu.svg" alt="menu" />
         </button>
       </div>
     </nav>
 
-    <div className="container mx-auto bg-white pt-12 h-full">
+    <div className="container mx-auto bg-white pt-16 h-full">
       {props.children}
+      <BottomNavi />
     </div>
   </>
 )
