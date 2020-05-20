@@ -11,6 +11,7 @@ type Props = {
   handleSubmit: () => void
   formRef: React.RefObject<HTMLFormElement>
   gacha?: Gacha
+  title: string
 }
 
 // (3) DOM層
@@ -18,7 +19,8 @@ const Component: React.FCX<Props> = ({
   className,
   handleSubmit,
   formRef,
-  gacha
+  gacha,
+  title
 }) => (
   <div className={className}>
     <form
@@ -29,7 +31,7 @@ const Component: React.FCX<Props> = ({
         return handleSubmit()
       }}
     >
-      <p className="text-gray-800 font-medium">New Gacha</p>
+      <p className="text-gray-800 font-medium">{title} Gacha</p>
       <div>
         <label className="block text-sm text-gray-00">Title</label>
         <input

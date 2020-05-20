@@ -15,7 +15,7 @@ type Props = {
 // (3) DOM層
 const Component: React.FCX<Props> = ({ className, handleClick, formRef }) => (
   <div className={className}>
-    <GachaForm handleSubmit={handleClick} formRef={formRef} />
+    <GachaForm title="New" handleSubmit={handleClick} formRef={formRef} />
   </div>
 )
 

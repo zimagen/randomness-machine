@@ -21,7 +21,12 @@ const Component: React.FCX<Props> = ({
   gacha
 }) => (
   <div className={className}>
-    <GachaForm handleSubmit={handleClick} formRef={formRef} gacha={gacha} />
+    <GachaForm
+      title="Edit"
+      handleSubmit={handleClick}
+      formRef={formRef}
+      gacha={gacha}
+    />
   </div>
 )
 
@@ -46,7 +51,6 @@ const Page: NextPage<Props> = (props) => {
     return null
   }
 
-  console.log(gacha)
   const handleClick = () => {
     const title = formRef.current?.gachaTitle?.value
     const imageUrl = formRef.current?.imageUrl?.value
