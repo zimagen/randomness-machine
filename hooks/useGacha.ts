@@ -1,7 +1,6 @@
-import { useRecoilState, atom } from 'recoil'
 import { useCallback } from 'react'
-
-const isServer = typeof window === 'undefined'
+import { useLocalStorageRecoilState } from '@/hooks/useLocalStorageRecoilState'
+import { localStorageAtom } from '@/helper/localStorageAtom'
 
 export type Gacha = {
   title: string
@@ -9,28 +8,19 @@ export type Gacha = {
   count: number
 }
 
-let storageGachas
-if (!isServer) {
-  storageGachas = window.localStorage.getItem('gachaState')
-}
-
-const gachaState = atom<Gacha[]>({
+const gachaState = localStorageAtom<Gacha[]>({
   key: 'gachaState',
-  default: storageGachas ? JSON.parse(storageGachas) : []
+  default: []
 })
 
 export const useGacha = () => {
-  const [gachas, setGachas] = useRecoilState(gachaState)
+  const [gachas, setGachas] = useLocalStorageRecoilState(gachaState)
 
   const add = useCallback(
     (gacha: Gacha) => {
       setGachas((gachaList) => [...gachaList, gacha])
-      window.localStorage.setItem(
-        'gachaState',
-        JSON.stringify([...gachas, gacha])
-      )
     },
-    [gachas, setGachas]
+    [setGachas]
   )
 
   return {
