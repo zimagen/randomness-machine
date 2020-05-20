@@ -2,7 +2,12 @@ import { atom } from 'recoil'
 
 export const isServer = typeof window === 'undefined'
 
-export const localStorageAtom = <T>(config: any) => {
+export const localStorageAtom = <T>(
+  config: Readonly<{
+    key: string
+    default: T
+  }>
+) => {
   let item
   if (!isServer) {
     item = window.localStorage.getItem(config.key)
