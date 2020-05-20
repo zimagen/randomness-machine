@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import GachaCard from '@/components/GachaCard'
 import { useGacha, Gacha } from '@/hooks/useGacha'
 import Link from 'next/link'
+import { isServer } from '@/helper/localStorageAtom'
 
 // (2) Types層
 type ContainerProps = {}
