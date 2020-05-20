@@ -20,7 +20,11 @@ const Component: React.FCX<Props> = ({ className, gachas }) => (
     </Link>
     <div className="flex flex-wrap -mx-1 lg:-mx-4">
       {gachas.map((gacha, index) => (
-        <GachaCard key={index} gacha={gacha} />
+        <Link href={'/gacha-list/[id]'} as={`/gacha-list/${index}`} key={index}>
+          <a className="block my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+            <GachaCard gacha={gacha} />
+          </a>
+        </Link>
       ))}
     </div>
   </div>
