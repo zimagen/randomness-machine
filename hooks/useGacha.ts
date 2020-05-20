@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useLocalStorageRecoilState } from './useLocalStorageRecoilState'
+import { useLocalStorageRecoilState } from '@/hooks/useLocalStorageRecoilState'
 import { localStorageAtom } from '@/helper/localStorageAtom'
 
 export type Gacha = {
