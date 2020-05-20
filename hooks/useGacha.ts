@@ -1,15 +1,22 @@
 import { useRecoilState, atom } from 'recoil'
 import { useCallback } from 'react'
 
+const isServer = typeof window === 'undefined'
+
 export type Gacha = {
   title: string
   imageUrl: string
   count: number
 }
 
+let storageGachas
+if (!isServer) {
+  storageGachas = window.localStorage.getItem('gachaState')
+}
+
 const gachaState = atom<Gacha[]>({
   key: 'gachaState',
-  default: []
+  default: storageGachas ? JSON.parse(storageGachas) : []
 })
 
 export const useGacha = () => {
@@ -18,9 +25,14 @@ export const useGacha = () => {
   const add = useCallback(
     (gacha: Gacha) => {
       setGachas((gachaList) => [...gachaList, gacha])
+      window.localStorage.setItem(
+        'gachaState',
+        JSON.stringify([...gachas, gacha])
+      )
     },
-    [setGachas]
+    [gachas, setGachas]
   )
+
   return {
     gachas,
     add
