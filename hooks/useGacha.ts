@@ -23,8 +23,16 @@ export const useGacha = () => {
     [setGachas]
   )
 
+  const edit = useCallback(
+    (id: number, gacha: Gacha) => {
+      setGachas((gachaList) => gachaList.map((v, i) => (i === id ? gacha : v)))
+    },
+    [setGachas]
+  )
+
   return {
     gachas,
-    add
+    add,
+    edit
   }
 }
